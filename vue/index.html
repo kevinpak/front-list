@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Appartment</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom style Js -->
+    <link href="style.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+   <header>
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="/">Appartment</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+     
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+           <li class="nav-item active">
+             <a class="nav-link" href="/">List <span class="sr-only">(current)</span></a>
+           </li>
+         </ul>
+       </div>
+     </nav>
+   </header>
+
+    <main role="main" class="bg-light" id="app">
+
+      <div class="container mb-5 pb-5">
+        <div class="card shadow-sm mb-4"
+        v-for="appart in entities">
+          <div class="card-body">
+            <ul class="nav nav-tabs" id="'myTab' + appart.id" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" :id="'home-tab' + appart.id" data-toggle="tab" :href="'#home' + appart.id" role="tab" :aria-controls="'home' + appart.id" aria-selected="true">Overview</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" :id="'profile-tab' + appart.id" data-toggle="tab" :href="'#profile' + appart.id" role="tab" :aria-controls="'profile' + appart.id" aria-selected="false">Details</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="'myTabContent' + appart.id">
+              <div class="tab-pane fade show active" :id="'home' + appart.id" role="tabpanel" :aria-labelledby="'home-tab' + appart.id">
+                <div class="media p-4">
+                  <img :src="'img/appart' + appart.id + '.jpg'" width="200" height="200" class="mr-3 img-thumbnail align-self-center" alt="...">
+                  <div class="media-body">
+                    <div class="row">
+                      <div class="col">
+                        <dl class="row">
+                          <dt class="col-lg-3">Title:</dt>
+                          <dd class="col-lg-9">{{appart.attributes.title}}</dd>
+      
+                          <dt class="col-lg-3">Type:</dt>
+                          <dd class="col-lg-9">{{appart.type}}</dd>
+                        
+                          <dt class="col-lg-3">Rooms:</dt>
+                          <dd class="col-lg-9">
+                            {{appart.attributes.rooms}}
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="col">
+                        <dl class="row">
+                          <dt class="col-lg-3">Area:</dt>
+                          <dd class="col-lg-9">{{appart.attributes.area}}</dd>
+                        
+                          <dt class="col-lg-3">Unit:</dt>
+                          <dd class="col-lg-9">
+                            {{appart.attributes.unit}}
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <like-button-component></like-button-component>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" :id="'profile' + appart.id" role="tabpanel" :aria-labelledby="'profile-tab' + appart.id">
+                <div class="row p-4">
+                  <div class="col">
+                    <strong>Address</strong>
+                    <dl class="row">
+                      <dt class="col-lg-3">City:</dt>
+                      <dd class="col-lg-9">{{appart.attributes.address.city}}</dd>
+                    
+                      <dt class="col-lg-3">Street:</dt>
+                      <dd class="col-lg-9">
+                        {{appart.attributes.address.street}}
+                      </dd>
+    
+                      <dt class="col-lg-3">House:</dt>
+                      <dd class="col-lg-9">{{appart.attributes.address.house}}</dd>
+    
+                      <dt class="col-lg-3">Room:</dt>
+                      <dd class="col-lg-9">{{appart.attributes.address.room}}</dd>
+                    </dl>
+                  </div>
+                  <div class="col">
+                    <strong>Author</strong>
+                    <dl class="row">
+                      <dt class="col-lg-3">Type:</dt>
+                      <dd class="col-lg-9">{{appart.relationships.type}}</dd>
+    
+                      <dt class="col-lg-3">Firstname:</dt>
+                      <dd class="col-lg-9">{{appart.relationships.attributes.first_name}}</dd>
+    
+                      <dt class="col-lg-3">Lastname:</dt>
+                      <dd class="col-lg-9">{{appart.relationships.attributes.last_name}}</dd>
+    
+                      <dt class="col-lg-3">Middle name:</dt>
+                      <dd class="col-lg-9">{{appart.relationships.attributes.middle_name}}</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+    <!-- Bootstrap Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Vue Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <!-- Custom script Js -->
+    <script src="script.js"></script>
+  </body>
+</html>

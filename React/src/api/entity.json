@@ -1,0 +1,83 @@
+ 
+{
+  "response": [
+    {
+      "type": "flat",
+      "id": 1,
+      "attributes": {
+        "title": "3-х комнатная на Минской",
+        "img": "https://cdn.pixabay.com/photo/2015/05/05/01/10/house-753270__340.jpg",
+        "rooms": 3,
+        "address": {
+          "city": "Tyumen",
+          "street": "Минская",
+          "house": "3a",
+          "room": "123"
+        },
+        "area": 134,
+        "unit": "квм"
+      },
+      "relationships": {
+        "type": "agent",
+        "id": 2,
+        "attributes": {
+          "first_name": "Василий",
+          "last_name": "Дроздов",
+          "middle_name": "Михайлович"
+        }
+      }
+    },
+    {
+      "type": "flat",
+      "id": 2,
+      "attributes": {
+        "title": "1 комнатная на Барабаинской",
+        "img": "https://cdn.pixabay.com/photo/2017/10/01/00/49/architecture-2804069__340.jpg",
+        "rooms": 2,
+        "address": {
+          "city": "Tyumen",
+          "street": "Барабинская",
+          "house": "12",
+          "room": "45"
+        },
+        "area": 34,
+        "unit": "квм"
+      },
+      "relationships": {
+        "type": "agent",
+        "id": 10,
+        "attributes": {
+          "first_name": "Михаил",
+          "last_name": "Иванов",
+          "middle_name": "Демидович"
+        }
+      }
+    },
+    {
+      "type": "flat",
+      "id": 3,
+      "attributes": {
+        "title": "Квартира Ленина",
+        "img": "https://cdn.pixabay.com/photo/2016/07/26/18/30/kitchen-1543493__340.jpg",
+        "rooms": 4,
+        "address": {
+          "city": "Tyumen",
+          "street": "Ленина",
+          "house": "134",
+          "room": "24"
+        },
+        "area": 134,
+        "unit": "квм"
+      },
+      "relationships": {
+        "type": "agent",
+        "id": 44,
+        "attributes": {
+          "first_name": "Степан",
+          "last_name": "Карачаев",
+          "middle_name": "Иванович"
+        }
+      }
+    }
+  ]
+}

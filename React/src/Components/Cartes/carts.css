@@ -1,0 +1,9 @@
+.card{
+    transition: 1s;
+}
+
+.card:hover {
+    border-radius: .4rem;
+    box-shadow: 0 0 8px 3px #0000003d !important;
+    overflow: hidden;
+}
